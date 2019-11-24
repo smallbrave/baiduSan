@@ -1,0 +1,15 @@
+table{
+    border: 2px solid #ccc;
+    border-collapse: collapse;
+}
+table td{
+    width: 80px;
+    height: 30px;
+    text-align: center;
+    font-size: 14px;
+    border: 1px solid #ccc;
+}
+table td button{
+    height: 20px;
+    line-height: 14px;
+}
