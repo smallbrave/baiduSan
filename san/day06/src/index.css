@@ -1,0 +1,6 @@
+div p:nth-of-type(2){
+    color: purple;
+}
+p p{
+   color: green;
+}
