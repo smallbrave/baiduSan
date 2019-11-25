@@ -1,6 +1,17 @@
-div p:nth-of-type(2){
+.grand{
     color: purple;
 }
-p p{
+.grand input{
+    border: none;
+    text-indent: 1em;
+    outline: none;
+}
+.father{
    color: green;
+}
+.child{
+    color: #000;
+}
+.child input{
+    border: 1px solid #000;
 }
