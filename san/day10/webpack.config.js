@@ -1,31 +1,31 @@
 module.exports={
     entry:'./src/main.js',
     output:{
-        filename: 'bundle.js'
+        filename:'bundle.js'
     },
     mode:'development',
     devServer:{
-        publicPath: '/dist'    //这里的这一‘/’很重要
+        publicPath:'/dist'
     },
     module:{
         rules:[
             {
                 test:/\.css$/,
-                exclude: /node_modules/,
-                use: ['style-loader','css-loader']
+                use: ['style-loader','css-loader'],
+                exclude: /node_modules/
             },
             {
                 test:/\.san$/,
-                exclude:/node_modules/,
-                use: {
-                    loader:'san-loader'
-                }
+                use:'san-loader',
+                exclude:/node_modules/
             },
             {
                 test:/\.js$/,
-                use:'babel-loader',
+                use:{
+                    loader:'babel-loader'
+                },
                 exclude:/node_modules/
             }
         ]
-    },
+    }
 }

@@ -1,0 +1,37 @@
+<template>
+<ul >
+    <button on-click='toggle'>Toggle</button>  
+    <li s-if="show" s-for="item in list trackBy item" s-transition="transition('slide', 300)">Listed element with transition effects.</li>
+</ul>
+</template>
+<script>
+import { transition } from 'san-transition'
+export default {
+    initData () {
+      return {
+        show: true,  
+        list: [1, 2, 3, 4, 5]
+      }
+    },
+    toggle: function(){
+        this.data.set('show',!this.data.get('show'))
+    },
+    transition
+}
+</script>
+<style>
+.slide-enter, .slide-leave {
+  transition: all .5s;
+}
+.slide-enter, .slide-before-leave {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+.slide-before-enter, .slide-leave {
+  opacity: 0;
+  transform: translate(100px, 0);
+}
+</style>
+    
+
+
