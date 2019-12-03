@@ -1,0 +1,111 @@
+<template>
+    <div class="container">
+        <nav><span class="title">expansion panel</span><i on-click="toggle"></i></nav>
+        <p s-if="show" s-transition="showContent">{{content}}</p> 
+    </div>
+</template>
+
+<script>
+   export default{
+       initData:function(){
+           return {
+               show:false,
+               content:"",
+           }
+       },
+       toggle:function(){
+           this.data.set('show',!this.data.get('show'));        
+       },
+       showContent: function(){
+           return{
+               enter:function(el,done){
+                   var steps = 20;
+                   var current = 0;
+                   function goStep(){
+                       if(current >= 20){
+                           el.style.opacity = 1;
+                           done();
+                           return; 
+                       }else{
+                           el.style.opacity = 1 / steps * current++;
+                           requestAnimationFrame(goStep);
+                       }
+                   }
+                   goStep();
+               },
+               leave:function(el,done){
+                    var steps = 20;
+                    var currentStep = 0;
+                    function goStep() {
+                        if (currentStep >= steps) {
+                            el.style.opacity = 0;
+                            done();
+                            return;
+                        }
+
+                        el.style.opacity = 1 - 1 / steps * currentStep++;
+                        requestAnimationFrame(goStep);
+                    }
+                     goStep();
+               }
+           }
+       },
+       compiled:function(){
+           console.log("编译中");
+       },
+       initd:function(){
+           console.log("实例初始化");  
+       },
+       attached:function(){
+           console.log("添加到页面了");
+       },
+       detached:function(){
+           console.log("移除了");
+       },
+       disposed:function(){
+           console.log("我没有了");
+       } 
+   }
+</script>
+
+<style>
+    .container{
+        margin: 10px auto;
+        width: 1000px;
+    }
+    nav {
+        margin-bottom: 20px;
+        height: 50px;
+        border: 1px solid #ccc;
+    }
+    nav span{
+        margin: 10px 20px;
+        display: inline-block;
+        font-size: 20px;
+        font-weight: 600;
+        height: 20px;
+        line-height: 20px;
+    }
+    nav i {
+        margin: 10px;
+        float: right;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        background-color: #ccc;
+    }
+    .container p{
+        border: 1px solid #ccc;
+    }
+    .enter, .leave {
+    transition: all .5s;
+    }
+
+    .before-enter, .leave {
+    opacity: 0;
+    }
+
+    .enter, .before-leave {
+    opacity: 1;
+    }
+</style>

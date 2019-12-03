@@ -1,0 +1,26 @@
+<template>
+    <div class="box">
+        <panel content="{{content}}"></panel>
+        <panel content="{{content}}"></panel>
+    </div>
+</template>
+
+<script>
+import panel from './panel.san'
+export default {
+    initData:function(){
+        return{
+        content:"组件是 San 的基本单位，是独立的数据、逻辑、视图的封装单元。"
+        +"从页面的角度看，组件是 HTML 元素的扩展。从功能模式的角度看，组件是一个 ViewModel。"
+        +"组件是 San 的基本单位，是独立的数据、逻辑、视图的封装单元。"
+        +"从页面的角度看，组件是 HTML 元素的扩展。从功能模式的角度看，组件是一个 ViewModel。"
+         +"从页面的角度看，组件是 HTML 元素的扩展。从功能模式的角度看，组件是一个 ViewModel。"
+        +"组件是 San 的基本单位，是独立的数据、逻辑、视图的封装单元。"
+        +"从页面的角度看，组件是 HTML 元素的扩展。从功能模式的角度看，组件是一个 ViewModel。"
+        }   
+    },
+    components:{
+        'panel':panel
+    }
+}
+</script>
