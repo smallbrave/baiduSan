@@ -1,0 +1,36 @@
+<template>
+  <li class="container"> 
+    <span on-click="toggle">{{ content }}</span>
+    <ul s-if="show" >
+        <ui-node s-for="item in items" items="{{item.children}}" content="{{ item.label }}" ></ui-node>
+    </ul>
+  </li>       
+</template>
+
+<script>
+export default {
+    initData:function(){
+        return {
+            show: false,
+        }
+    },
+    components:{
+        'ui-node': 'self'
+    },
+    toggle: function(){
+        console.log(this);
+        this.data.set('show',!this.data.get('show'))
+    }
+}
+</script>
+
+<style scoped>
+   .container{
+       margin: 10px auto;
+       width: 400px;
+   }
+   .container span:hover{
+       cursor: pointer
+   }
+</style>
+
